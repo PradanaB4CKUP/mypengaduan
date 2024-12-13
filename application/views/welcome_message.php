@@ -107,7 +107,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </ul>
           <span class="navbar-text">
             <a href="
-						<?=site_url('login')?>">Admin </a>
+						<?=site_url('akun')?>">Admin </a>
           </span>
         </div>
       </div>
