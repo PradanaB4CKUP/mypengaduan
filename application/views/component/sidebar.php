@@ -11,25 +11,18 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="<?=site_url('admin/view_jadwal')?>">
-          <i class="bi bi-plus-circle"></i>
-          <span>Jadwal</span>
+        <i class="bi bi-exclamation-diamond-fill"></i>
+          <span>Kasus</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="<?=site_url('admin/view_penyewa')?>">
-          <i class="bi bi-journal-text"></i>
-          <span>Penyewa</span>
+        <i class="bi bi-people-fill"></i>
+          <span>Pelapor</span>
         </a>
       </li><!-- End Profile Page Nav -->
 	  
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="<?=site_url('admin/view_waktu_sewa')?>">
-          <i class="bi bi-book"></i>
-          <span>Waktu Sewa</span>
-        </a>
-      </li><!-- End Profile Page Nav -->
-
 	  <!--
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">

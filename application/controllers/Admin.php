@@ -1,4 +1,4 @@
-<?php
+<?php //based myfutsal
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller {
@@ -12,10 +12,10 @@ class Admin extends CI_Controller {
 
 	public function index()
 	{
-		$data['jumlah_penyewa'] = $this->crud_model->menghitung_jumlah_row('penyewa');
+		//$data['jumlah_penyewa'] = $this->crud_model->menghitung_jumlah_row('penyewa');
 		// var_dump($data);die();
 		
-		$this->load->view('admin_index', $data);
+		$this->load->view('admin_index');
 	}	
 
 	public function view_jadwal()
