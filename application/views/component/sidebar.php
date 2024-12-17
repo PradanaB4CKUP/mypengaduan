@@ -10,14 +10,14 @@
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="<?=site_url('admin/view_jadwal')?>">
+        <a class="nav-link collapsed" href="<?=site_url('admin/view_kasus')?>">
         <i class="bi bi-exclamation-diamond-fill"></i>
           <span>Kasus</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="<?=site_url('admin/view_penyewa')?>">
+        <a class="nav-link collapsed" href="<?=site_url('admin/view_pelapor')?>">
         <i class="bi bi-people-fill"></i>
           <span>Pelapor</span>
         </a>

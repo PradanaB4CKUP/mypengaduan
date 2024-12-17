@@ -12,18 +12,18 @@ class Admin extends CI_Controller {
 
 	public function index()
 	{
-		//$data['jumlah_penyewa'] = $this->crud_model->menghitung_jumlah_row('penyewa');
+		//$data['jumlah_pelapor'] = $this->crud_model->menghitung_jumlah_row('pelapor');
 		// var_dump($data);die();
 		
 		$this->load->view('admin_index');
 	}	
 
-	public function view_jadwal()
+	public function view_kasus()
 	{
-		$data['array_jadwal'] = $this->crud_model->mengambil_data('jadwal');
+		$data['array_kasus'] = $this->crud_model->mengambil_data('kasus');
 		// var_dump($data);die();
 		
-		$this->load->view('admin_view_jadwal',$data);
+		$this->load->view('admin_view_kasus',$data);
 	}	
 	
 	public function view_absen_id($id)
@@ -37,11 +37,11 @@ class Admin extends CI_Controller {
 		$this->load->view('admin_view_absen_id',$data);
 	}	
 	
-	public function view_penyewa()
+	public function view_pelapor()
 	{
 		
-		$data['array_penyewa'] = $this->crud_model->mengambil_data('penyewa');
-		$this->load->view('admin_view_penyewa',$data);
+		$data['array_pelapor'] = $this->crud_model->mengambil_data('pelapor');
+		$this->load->view('admin_view_pelapor',$data);
 	}	
 	
 	public function view_siswa()
@@ -101,25 +101,25 @@ class Admin extends CI_Controller {
 		$this->load->view('admin_view_pencarian_go',$data);
 	}	
 
-	public function add_penyewa()
+	public function add_pelapor()
 	{
-		// $data['array_pelajaran'] = $this->crud_model->mengambil_data('pelajaran');
+		// $data['array_kasus'] = $this->crud_model->mengambil_data('kasus');
 		// $data['array_kelas'] = $this->crud_model->mengambil_data('kelas');
 		
-		$this->load->view('admin_add_penyewa',$data='');
+		$this->load->view('admin_add_pelapor',$data='');
 	}	
 	
 	public function add_siswa()
 	{
-		$data['array_pelajaran'] = $this->crud_model->mengambil_data('pelajaran');
+		$data['array_kasus'] = $this->crud_model->mengambil_data('kasus');
 		$data['array_kelas'] = $this->crud_model->mengambil_data('kelas');
 		
 		$this->load->view('admin_add_siswa',$data);
 	}	
 	
-	public function add_pelajaran()
+	public function add_kasus()
 	{
-		$this->load->view('admin_add_pelajaran');
+		$this->load->view('admin_add_kasus');
 	}	
 	
 	public function add_waktu_sewa()
@@ -127,15 +127,15 @@ class Admin extends CI_Controller {
 		$this->load->view('admin_add_waktu_sewa');
 	}	
 	
-	public function edit_jadwal($id)
+	public function edit_kasus($id)
 	{
 		//load model crud
-		$data['array_jadwal'] = $this->crud_model->mengambil_data_id('jadwal','id_jadwal',$id);
-		$data['obj_jadwal'] = $data['array_jadwal'][0];
+		$data['array_kasus'] = $this->crud_model->mengambil_data_id('kasus','id_kasus',$id);
+		$data['obj_kasus'] = $data['array_kasus'][0];
 		
 		// var_dump($data);die();
 
-		$this->load->view('admin_edit_jadwal', $data);
+		$this->load->view('admin_edit_kasus', $data);
 	}	
 
 	public function edit_waktu_sewa($id)
@@ -153,7 +153,7 @@ class Admin extends CI_Controller {
 	{
 		//load model crud
 		$data['array_absen'] = $this->crud_model->mengambil_data_id('absen','id_absen',$id);
-		$data['array_pelajaran'] = $this->crud_model->mengambil_data('pelajaran');
+		$data['array_kasus'] = $this->crud_model->mengambil_data('kasus');
 		$data['array_kelas'] = $this->crud_model->mengambil_data('kelas');
 		$data['obj_absen'] = $data['array_absen'][0];
 
@@ -162,15 +162,15 @@ class Admin extends CI_Controller {
 		$this->load->view('admin_edit_absen', $data);
 	}	
 
-	public function edit_penyewa($id)
+	public function edit_pelapor($id)
 	{
 		//load model crud
-		$data['array_penyewa'] = $this->crud_model->mengambil_data_id('penyewa','id_penyewa',$id);
-		$data['obj_penyewa'] = $data['array_penyewa'][0];
+		$data['array_pelapor'] = $this->crud_model->mengambil_data_id('pelapor','id_pelapor',$id);
+		$data['obj_pelapor'] = $data['array_pelapor'][0];
 		
 		// var_dump($data);die();
 
-		$this->load->view('admin_edit_penyewa', $data);
+		$this->load->view('admin_edit_pelapor', $data);
 	}	
 
 	public function hapus_waktu_sewa($id)
@@ -182,13 +182,13 @@ class Admin extends CI_Controller {
 		redirect('/admin/view_waktu_sewa', 'refresh');
 	}
 
-	public function hapus_jadwal($id)
+	public function hapus_kasus($id)
 	{
 		//load model hapus data
-		$this->crud_model->menghapus_data_id('jadwal','id_jadwal',$id);
+		$this->crud_model->menghapus_data_id('kasus','id_kasus',$id);
 
 		//redirect
-		redirect('/admin/view_jadwal', 'refresh');
+		redirect('/admin/view_kasus', 'refresh');
 	}
 
 	public function hapus_absen($id)
@@ -200,64 +200,49 @@ class Admin extends CI_Controller {
 		redirect('/admin/view_absen', 'refresh');
 	}
 
-	public function hapus_penyewa($id)
+	public function hapus_pelapor($id)
 	{
 		//load model hapus data
-		$this->crud_model->menghapus_data_id('penyewa','id_penyewa',$id);
+		$this->crud_model->menghapus_data_id('pelapor','id_pelapor',$id);
 
 		//redirect
-		redirect('/admin/view_penyewa', 'refresh');
+		redirect('/admin/view_pelapor', 'refresh');
 	}
 
-	public function edit_pelajaran_go()
+	public function edit_kasus_go()
 	{
 		// var_dump($_POST);
 
 		//variabel data edit
 		$data = array(
-			'nama_pelajaran' => $this->input->post('nama_pelajaran'),
-			'nama_guru' => $this->input->post('nama_guru')		
+			'tanggal_laporan' => $this->input->post('tanggal_laporan'),
+			'id_pelapor' => $this->input->post('id_pelapor'),
+			'deskripsi_kasus' => $this->input->post('deskripsi_kasus'),
+			'status_kasus' => $this->input->post('status_kasus')		
 		);
 
 		//load model mengubah data
-		$this->crud_model->mengubah_data_id('pelajaran', $data,'id_pelajaran',$this->input->post('id_pelajaran'));
+		$this->crud_model->mengubah_data_id('kasus', $data,'id_kasus',$this->input->post('id_kasus'));
 		
 		//redirect
-		redirect('/admin/view_pelajaran', 'refresh');
+		redirect('/admin/view_kasus', 'refresh');
 	}	
 	
-	public function edit_jadwal_go()
+	public function edit_pelapor_go()
 	{
 		// var_dump($_POST);
 
 		//variabel data edit
 		$data = array(
-			'nama_penyewa' => $this->input->post('nama_penyewa'),
-			'waktu_sewa' => $this->input->post('waktu_sewa')		
-		);
-
-		//load model mengubah data
-		$this->crud_model->mengubah_data_id('jadwal', $data,'id_jadwal',$this->input->post('id_jadwal'));
-		
-		//redirect
-		redirect('/admin/view_jadwal', 'refresh');
-	}	
-	
-	public function edit_penyewa_go()
-	{
-		// var_dump($_POST);
-
-		//variabel data edit
-		$data = array(
-			'nama_penyewa' => $this->input->post('nama_penyewa'),
+			'nama_pelapor' => $this->input->post('nama_pelapor'),
 			'no_telp' => $this->input->post('no_telp')		
 		);
 
 		//load model mengubah data
-		$this->crud_model->mengubah_data_id('penyewa', $data,'id_penyewa',$this->input->post('id_penyewa'));
+		$this->crud_model->mengubah_data_id('pelapor', $data,'id_pelapor',$this->input->post('id_pelapor'));
 		
 		//redirect
-		redirect('/admin/view_penyewa', 'refresh');
+		redirect('/admin/view_pelapor', 'refresh');
 	}	
 	
 	public function edit_waktu_sewa_go()
@@ -283,7 +268,7 @@ class Admin extends CI_Controller {
 
 		//variabel data edit
 		$data = array(
-			'id_pelajaran' => $this->input->post('id_pelajaran'),
+			'id_kasus' => $this->input->post('id_kasus'),
 			'nama_guru' => $this->input->post('nama_guru'),
 			'id_kelas' => $this->input->post('id_kelas'),
 			'tanggal' => $this->input->post('tanggal'),
@@ -298,38 +283,40 @@ class Admin extends CI_Controller {
 		redirect('/admin/view_absen', 'refresh');
 	}	
 	
-	public function add_pelajaran_go()
+	public function add_kasus_go()
 	{
 		// var_dump($_POST);
 		
 		//variabel data
 		$data = array(
-			'nama_pelajaran' => $this->input->post('nama_pelajaran'),
-			'nama_guru' => $this->input->post('nama_guru')		
+			'tanggal_laporan' => $this->input->post('tanggal_laporan'),
+			'id_pelapor' => $this->input->post('id_pelapor'),
+			'deskripsi_kasus' => $this->input->post('deskripsi_kasus'),
+			'status_kasus' => 'Sedang berjalan'		
 		);
 		
 		//tampilkan view
-		$this->crud_model->masukan_data('pelajaran', $data);
+		$this->crud_model->masukan_data('kasus', $data);
 		
 		//redirect
-		redirect('/admin/view_pelajaran', 'refresh');
+		redirect('/admin/view_kasus', 'refresh');
 	}	
 	
-	public function add_penyewa_go()
+	public function add_pelapor_go()
 	{
 		// var_dump($_POST);
 		
 		//variabel data
 		$data = array(
-			'nama_penyewa' => $this->input->post('nama_penyewa'),
+			'nama_pelapor' => $this->input->post('nama_pelapor'),
 			'no_telp' => $this->input->post('no_telp')
 		);
 		
 		//tampilkan view
-		$this->crud_model->masukan_data('penyewa', $data);
+		$this->crud_model->masukan_data('pelapor', $data);
 		
 		//redirect
-		redirect('/admin/view_penyewa', 'refresh');
+		redirect('/admin/view_pelapor', 'refresh');
 	}	
 	
 	public function add_waktu_sewa_go()
@@ -368,27 +355,27 @@ class Admin extends CI_Controller {
 		redirect('/admin/view_kelas', 'refresh');
 	}	
 	
-	public function reset_jadwal()
+	public function reset_kasus()
 	{
 		// var_dump($_POST);
 		
 		//tampilkan view
-		$this->crud_model->mengosongkan_tabel('jadwal');
+		$this->crud_model->mengosongkan_tabel('kasus');
 		
 		//redirect
-		redirect('/admin/view_jadwal', 'refresh');
+		redirect('/admin/view_kasus', 'refresh');
 	}	
 
 	public function algoritma_genetika()
 	{
 		set_time_limit(120);
 		$this->load->model('m_admin');
-		$data['penyewa'] = $this->crud_model->mengambil_data('penyewa');
+		$data['pelapor'] = $this->crud_model->mengambil_data('pelapor');
 		$data['waktu'] = $this->crud_model->mengambil_data('waktu_sewa');
 
-		$this->load->view('v_admin_jadwal_otomatis',$data);	
+		$this->load->view('v_admin_kasus_otomatis',$data);	
 
 		//redirect
-		// redirect('/admin/view_jadwal', 'refresh');		
+		// redirect('/admin/view_kasus', 'refresh');		
 	}	
 }
