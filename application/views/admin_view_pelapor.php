@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Dashboard Admin</title>
+  <title>View pelapor</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -46,86 +46,54 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Dashboard</h1>
+      <h1>List pelapor</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="<?=site_url('admin')?>">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
+          <li class="breadcrumb-item active">Lists pelapor</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
     <section class="section dashboard">
-		<!-- Sales Card -->
-					<div class="row">
-					  <div class="col card info-card sales-card m-3">
-						<div class="card-body">
-						  <h5 class="card-title">Jumlah Pelapor</h5>
 
-						  <div class="d-flex align-items-center">
-							<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-              <i class="bi bi-people-fill"></i>
-							</div>
-							<div class="ps-3">
-							  <h6><?=$jumlah_pelapor?></h6>
-							  <span class="text-muted small pt-2 ps-1">Total Pelapor</span>
-							</div>
-						  </div>
-						</div>
-					  </div>					  
-					</div>
-					<div class="row">
-					  <div class="col card info-card sales-card m-3">
-						<div class="card-body">
-						  <h5 class="card-title">Jumlah Kasus</h5>
 
-						  <div class="d-flex align-items-center">
-							<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-              <i class="bi bi-exclamation-diamond-fill"></i>
-							</div>
-							<div class="ps-3">
-							  <h6><?=$jumlah_kasus?></h6>
-							  <span class="text-muted small pt-2 ps-1">Total Semua Kasus</span>
-							</div>
-						  </div>
-						</div>
-					  </div>					  
-					</div>
-					<div class="row">
-					  <div class="col card info-card sales-card m-3">
-						<div class="card-body">
-						  <h5 class="card-title">Jumlah Dalam Penanganan</h5>
+            <!-- Recent Sales -->
+              <div class="card recent-sales overflow-auto">
 
-						  <div class="d-flex align-items-center">
-							<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-              <i class="bi bi-arrow-counterclockwise"></i>
-							</div>
-							<div class="ps-3">
-							  <h6><?=$jumlah_kasus_berlajan?></h6>
-							  <span class="text-muted small pt-2 ps-1">Kasus Yang Sedang Diselesaikan</span>
-							</div>
-						  </div>
-						</div>
-					  </div>					  
-					</div>
-					<div class="row">
-					  <div class="col card info-card sales-card m-3">
-						<div class="card-body">
-						  <h5 class="card-title">Jumlah Kasus Selesai</h5>
+                <div class="card-body">
+                  <div class="d-flex justify-content-between">
+					<h5 class="card-title">Data pelapor</h5>
+					<button class="btn btn-sm text-primary"><a href="<?=site_url('admin/add_pelapor')?>">Tambah pelapor</a></button>
+				  </div>
 
-						  <div class="d-flex align-items-center">
-							<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-               <i class="bi bi-check-circle-fill"></i>
-							</div>
-							<div class="ps-3">
-							  <h6><?=$jumlah_kasus_selesai?></h6>
-							  <span class="text-muted small pt-2 ps-1">Kasus Yang Sudah Selesai</span>
-							</div>
-						  </div>
-						</div>
-					  </div>					  
-					</div>
-		<!-- End Sales Card -->    
+                  <table class="table table-borderless datatable">
+                    <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nama Pelapor</th>
+                        <th scope="col">Alamat</th>
+                        <th scope="col">No Telpon</th>
+                        <th scope="col">Aksi</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+					<?php foreach($array_pelapor as $pelapor): ?>
+										  <tr>
+											<th scope="row"><?=$pelapor->id_pelapor?></th>
+											<td><?=$pelapor->nama_pelapor?></td>
+											<td><?=$pelapor->alamat?></td>
+											<td><?=$pelapor->nomor_telpon?></td>
+											<td><a href="<?=site_url('admin/edit_pelapor/'.$pelapor->id_pelapor)?>"><i class="bi bi-pencil-square"></i></a> | <a href="<?=site_url('admin/hapus_pelapor/'.$pelapor->id_pelapor)?>"><i class="bi bi-trash3"></i></a> </td>
+										  </tr>
+					<?php endforeach; ?>
+                    </tbody>
+                  </table>
+
+                </div>
+				
+              </div><!-- End Recent Sales -->
+	
 	</section>
 
   </main><!-- End #main -->

@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Dashboard Admin</title>
+  <title>View Kasus</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -36,96 +36,66 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
   <!-- ======= Header ======= -->
-	<?php $this->load->view('component/navbar')?>  
+	<?php $this->load->view('component/navbar_user')?>  
   <!-- End Header -->
 
   <!-- ======= Sidebar ======= -->
-	<?php $this->load->view('component/sidebar')?>  
+	<?php $this->load->view('component/sidebar_user')?>  
   <!-- End Sidebar-->
 
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Dashboard</h1>
+      <h1>List Kasus</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="<?=site_url('admin')?>">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
+          <li class="breadcrumb-item active">Lists Kasus</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
     <section class="section dashboard">
-		<!-- Sales Card -->
-					<div class="row">
-					  <div class="col card info-card sales-card m-3">
-						<div class="card-body">
-						  <h5 class="card-title">Jumlah Pelapor</h5>
 
-						  <div class="d-flex align-items-center">
-							<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-              <i class="bi bi-people-fill"></i>
-							</div>
-							<div class="ps-3">
-							  <h6><?=$jumlah_pelapor?></h6>
-							  <span class="text-muted small pt-2 ps-1">Total Pelapor</span>
-							</div>
-						  </div>
-						</div>
-					  </div>					  
-					</div>
-					<div class="row">
-					  <div class="col card info-card sales-card m-3">
-						<div class="card-body">
-						  <h5 class="card-title">Jumlah Kasus</h5>
 
-						  <div class="d-flex align-items-center">
-							<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-              <i class="bi bi-exclamation-diamond-fill"></i>
-							</div>
-							<div class="ps-3">
-							  <h6><?=$jumlah_kasus?></h6>
-							  <span class="text-muted small pt-2 ps-1">Total Semua Kasus</span>
-							</div>
-						  </div>
-						</div>
-					  </div>					  
-					</div>
-					<div class="row">
-					  <div class="col card info-card sales-card m-3">
-						<div class="card-body">
-						  <h5 class="card-title">Jumlah Dalam Penanganan</h5>
+            <!-- Recent Sales -->
+              <div class="card recent-sales overflow-auto">
 
-						  <div class="d-flex align-items-center">
-							<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-              <i class="bi bi-arrow-counterclockwise"></i>
-							</div>
-							<div class="ps-3">
-							  <h6><?=$jumlah_kasus_berlajan?></h6>
-							  <span class="text-muted small pt-2 ps-1">Kasus Yang Sedang Diselesaikan</span>
-							</div>
-						  </div>
-						</div>
-					  </div>					  
-					</div>
-					<div class="row">
-					  <div class="col card info-card sales-card m-3">
-						<div class="card-body">
-						  <h5 class="card-title">Jumlah Kasus Selesai</h5>
+                <div class="card-body">
+                  <div class="d-flex justify-content-between">
+					<h5 class="card-title">Data Kasus</h5>
+					<button class="btn btn-sm text-primary"><a href="<?=site_url('user/add_kasus')?>">Buat Laporan</a></button>
+				  </div>
 
-						  <div class="d-flex align-items-center">
-							<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-               <i class="bi bi-check-circle-fill"></i>
-							</div>
-							<div class="ps-3">
-							  <h6><?=$jumlah_kasus_selesai?></h6>
-							  <span class="text-muted small pt-2 ps-1">Kasus Yang Sudah Selesai</span>
-							</div>
-						  </div>
-						</div>
-					  </div>					  
-					</div>
-		<!-- End Sales Card -->    
+                  <table class="table table-borderless datatable">
+                    <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Tanggal Laporan</th>
+                        <th scope="col">Nama Pelapor</th>
+                        <th scope="col">Deskripsi Laporan</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Aksi</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+<?php foreach($array_kasus as $kasus): ?>
+                      <tr>
+                        <th scope="row"><?=$kasus->id_kasus?></th>
+                        <td><?=$kasus->tanggal_laporan?></td>
+                        <td><?=$kasus->nama_pelapor?></td>
+                        <td><?=$kasus->deskripsi_kasus?></td>
+                        <td><?=$kasus->status_kasus?></td>
+                        <td><a href="<?=site_url('user/hapus_Kasus/'.$kasus->id_kasus)?>"><i class="bi bi-trash3"></i></a> </td>
+                      </tr>
+<?php endforeach; ?>
+                    </tbody>
+                  </table>
+
+                </div>
+				
+              </div><!-- End Recent Sales -->
+	
 	</section>
 
   </main><!-- End #main -->

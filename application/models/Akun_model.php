@@ -27,6 +27,23 @@ class Akun_model extends CI_Model{
 		}		
 	}
 
+    public function login_user($id_user, $password_user) {
+        $this->db->where('id_user', $id_user);
+        $query = $this->db->get('user');
+
+		// var_dump($query);die();////////////////////////////
+        
+        if ($query->num_rows() == 1) {
+            $user = $query->row();
+			
+			// var_dump($user->password_user);die();////////////////////////////
+            if ($password_user == $user->password_user) {				
+                return $user;
+            }
+        }
+        return false;
+    }
+
 	public function mengecek_session()
 	{
 		if($this->session->userdata('login')){

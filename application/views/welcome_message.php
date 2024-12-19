@@ -105,9 +105,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<?=site_url()?>">Beranda </a>
             </li>
           </ul>
+          <span class="navbar-text me-3">
+            <a href="<?=site_url('akun')?>">Admin </a>
+          </span>
           <span class="navbar-text">
-            <a href="
-						<?=site_url('akun')?>">Admin </a>
+            <a href="<?=site_url('akun/akun_pelapor')?>">Pelapor </a>
           </span>
         </div>
       </div>
@@ -118,7 +120,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <h1 class="mb-3 fw-bold">Tempat Laporan Terbuka</h1>
           <p>Website pengaduan adalah platform digital yang dirancang untuk memfasilitasi masyarakat dalam menyampaikan keluhan, laporan, atau masukan terkait layanan publik, infrastruktur, atau isu tertentu. Melalui website ini, pengguna dapat dengan mudah mengisi formulir pengaduan, melampirkan bukti pendukung, dan memantau status penyelesaian laporan mereka. Website pengaduan biasanya dilengkapi dengan fitur pencatatan otomatis, transparansi proses, serta integrasi notifikasi untuk memastikan setiap pengaduan mendapat tanggapan yang cepat dan tepat.</p>
           <a href="
-					<?=site_url().'/welcome/homepage_daftar'?>">
+					<?=site_url().'/akun/akun_pelapor'?>">
             <button type="button" class="btn fw-bold btn-primary">Buat Aduan</button>
           </a>
         </div>

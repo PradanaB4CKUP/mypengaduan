@@ -1,7 +1,7 @@
 <?php //based myfutsal
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin extends CI_Controller {
+class User extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
@@ -18,15 +18,46 @@ class Admin extends CI_Controller {
 		$data['jumlah_kasus_selesai'] = $this->crud_model->menghitung_jumlah_row_where('kasus','status_kasus','Selesai');
 		// var_dump($data);die();
 		
-		$this->load->view('admin_index',$data);
+		$this->load->view('user_index',$data);
 	}	
+
+	public function login_user() {
+        $id_user = $this->input->post('id_user');
+        $password_user = $this->input->post('password_user');
+
+		// var_dump($_POST);die();////////////////
+        
+        $user = $this->akun_model->login_user($id_user, $password_user);
+        
+        if ($user) {
+            $this->session->set_userdata(array(
+                'id_user' => $user->id_user,
+                'id_pelapor' => $user->id_pelapor,
+                'login' => true
+            ));
+			// print_r($_SESSION);die();
+            redirect('user/view_kasus');
+        } else {
+            $this->session->set_flashdata('error', 'Username atau password salah');
+			echo '<script>alert("Id atau password salah. Mohon tulis kembali!")</script>';
+            redirect('akun/akun_pelapor', 'refresh');
+        }
+    }
+    
+    public function logout_user() {
+        $this->session->sess_destroy();
+        redirect('akun/akun_pelapor');
+    }
 
 	public function view_kasus()
 	{
-		$data['array_kasus'] = $this->crud_model->mengambil_data_join('kasus',['pelapor']);
+		// var_dump($this->session->userdata('id_pelapor'));die();
+
+		$data['array_kasus'] = $this->crud_model->mengambil_data_join_id('kasus', ['pelapor'] ,'pelapor.id_pelapor',$this->session->userdata('id_pelapor'));
+		// print_r($_SESSION);die();
 		// var_dump($data);die();
 		
-		$this->load->view('admin_view_kasus',$data);
+		$this->load->view('user_view_kasus',$data);
 	}	
 	
 	public function view_absen_id($id)
@@ -124,7 +155,7 @@ class Admin extends CI_Controller {
 	{
 		$data['array_pelapor'] = $this->crud_model->mengambil_data('pelapor');
 
-		$this->load->view('admin_add_kasus',$data);
+		$this->load->view('user_add_kasus',$data);
 	}	
 	
 	public function add_waktu_sewa()
@@ -193,7 +224,7 @@ class Admin extends CI_Controller {
 		$this->crud_model->menghapus_data_id('kasus','id_kasus',$id);
 
 		//redirect
-		redirect('/admin/view_kasus', 'refresh');
+		redirect('/user/view_kasus', 'refresh');
 	}
 
 	public function hapus_absen($id)
@@ -305,7 +336,7 @@ class Admin extends CI_Controller {
 		$this->crud_model->masukan_data('kasus', $data);
 		
 		//redirect
-		redirect('/admin/view_kasus', 'refresh');
+		redirect('/user/view_kasus', 'refresh');
 	}	
 	
 	public function add_pelapor_go()

@@ -49,7 +49,7 @@ a{
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <div class="card my-5">
-          <form action="<?=site_url('akun/login_go')?>" method="post" class="card-body cardbody-color p-lg-5">
+          <form action="<?=site_url('user/login_user')?>" method="post" class="card-body cardbody-color p-lg-5">
 
             <div class="text-center">
               <img src="https://visualpharm.com/assets/381/Admin-595b40b65ba036ed117d3b23.svg" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
@@ -57,13 +57,18 @@ a{
             </div>
 
             <div class="mb-3">
-              <input name="id" type="text" class="form-control" id="Username" aria-describedby="emailHelp"
+              <input type="text" class="form-control" name="id_user" aria-describedby="emailHelp"
                 placeholder="Username">
             </div>
             <div class="mb-3">
-              <input name="password" type="password" class="form-control" id="password" placeholder="password">
+              <input type="password" class="form-control" name="password_user" placeholder="password">
             </div>
             <div class="text-center"><button type="submit" class="btn btn-color px-5 mb-3 w-100">Login</button></div>
+
+            <!-- Tambahkan tombol Daftar -->
+            <div class="text-center">
+              <a href="<?=site_url('akun/daftar')?>" class="btn btn-outline-secondary px-5 w-100">Daftar</a>
+            </div>
           </form>
         </div>
 

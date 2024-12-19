@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Dashboard Admin</title>
+  <title>Dashboard User</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -36,11 +36,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
   <!-- ======= Header ======= -->
-	<?php $this->load->view('component/navbar')?>  
+	<?php $this->load->view('component/navbar_user')?>  
   <!-- End Header -->
 
   <!-- ======= Sidebar ======= -->
-	<?php $this->load->view('component/sidebar')?>  
+	<?php $this->load->view('component/sidebar_user')?>  
   <!-- End Sidebar-->
 
   <main id="main" class="main">

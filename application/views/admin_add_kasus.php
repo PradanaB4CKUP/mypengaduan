@@ -73,7 +73,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Nama Pelapor</label>
                   <div class="col-sm-10">
-                    <input name="id_pelapor" type="text" class="form-control">
+                    
+                    <select name="id_pelapor" class="form-select" id="exampleSelect"> 
+                    <?php foreach($array_pelapor as $pelapor): ?>
+                      <option value="<?=$pelapor->id_pelapor?>"><?=$pelapor->nama_pelapor?></option>
+                      <?php endforeach; ?>
+                    </select>
                   </div>
                 </div>
                 <div class="row mb-3">

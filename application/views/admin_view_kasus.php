@@ -83,7 +83,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       <tr>
                         <th scope="row"><?=$kasus->id_kasus?></th>
                         <td><?=$kasus->tanggal_laporan?></td>
-                        <td><?=$kasus->id_pelapor?></td>
+                        <td><?=$kasus->nama_pelapor?></td>
                         <td><?=$kasus->deskripsi_kasus?></td>
                         <td><?=$kasus->status_kasus?></td>
                         <td><a href="<?=site_url('admin/edit_Kasus/'.$kasus->id_kasus)?>"><i class="bi bi-pencil-square"></i></a> | <a href="<?=site_url('admin/hapus_Kasus/'.$kasus->id_kasus)?>"><i class="bi bi-trash3"></i></a> </td>
