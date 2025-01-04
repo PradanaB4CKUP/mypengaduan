@@ -1,3 +1,4 @@
+
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
@@ -8,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Buat Laporan</title>
+  <title>Dashboard Staff</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -36,67 +37,55 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
   <!-- ======= Header ======= -->
-	<?php $this->load->view('component/navbar_user')?>  
+	<?php $this->load->view('component/navbar_staff')?>  
   <!-- End Header -->
 
   <!-- ======= Sidebar ======= -->
-	<?php $this->load->view('component/sidebar_user')?>  
+	<?php $this->load->view('component/sidebar_staff')?>  
   <!-- End Sidebar-->
 
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Buat Laporan</h1>
+      <h1>Setting</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="<?=site_url('user/view_kasus')?>">Home</a></li>
-          <li class="breadcrumb-item active">Buat Laporan</li>
+          <li class="breadcrumb-item"><a href="<?=site_url('staff')?>">Home</a></li>
+          <li class="breadcrumb-item active">Setting</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
-    <section class="section dashboard">
-	
-		<div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Menambah Laporan</h5>
-
-              <!-- General Form Elements -->
-              <form action="<?=site_url('user/add_kasus_go')?>" method="post">
-                <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label">Tanggal Laporan</label>
-                  <div class="col-sm-10">
-                    <input name="tanggal_laporan" type="date" class="form-control">
-                  </div>
-                </div>
-				
-                <div class="row mb-3 d-none">
-                  <label for="inputText" class="col-sm-2 col-form-label">id pelapor</label>
-                  <div class="col-sm-10">
-                    <input name="id_pelapor" type="hidden" value="<?=$this->session->userdata('id_pelapor')?>" class="form-control">
-                  </div>
-                </div>
-				
-                <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label">Deskripsi Kasus</label>
-                  <div class="col-sm-10">
-                    <textarea class="form-control" name="deskripsi_kasus" id="exampleTextarea" rows="4" placeholder="Masukkan teks di sini..."></textarea>
-                  </div>
-                </div>
-				
-                <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label"></label>
-                  <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Buat</button>
-                  </div>
-                </div>
-
-              </form><!-- End General Form Elements -->
-
-            </div>
-          </div>
-	
-	</section>
+	<div class="container mt-5 bg-white p-2">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Komponen</th>
+                    <th>Isi</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>John Doe</td>
+                    <td>johndoe@example.com</td>
+                    <td>
+                        <button type="button" class="btn btn-primary btn-sm">Edit</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Jane Smith</td>
+                    <td>janesmith@example.com</td>
+                    <td>
+                        <button type="button" class="btn btn-primary btn-sm">Edit</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
   </main><!-- End #main -->
 

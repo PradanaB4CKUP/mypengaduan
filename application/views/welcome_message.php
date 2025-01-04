@@ -108,6 +108,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <span class="navbar-text me-3">
             <a href="<?=site_url('akun')?>">Admin </a>
           </span>
+          <span class="navbar-text me-3">
+            <a href="<?=site_url('akun/akun_staff')?>">Staff </a>
+          </span>
           <span class="navbar-text">
             <a href="<?=site_url('akun/akun_pelapor')?>">Pelapor </a>
           </span>
@@ -174,7 +177,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </button>
   </div>
 
-<!-- Kebijakan Pengaduan -->
+<!-- Kebijakan Pengaduan
 <section class="container my-5">
     <h2 class="mb-4">1. Tujuan Pengaduan</h2>
     <p>Website pengaduan ini dibuat untuk memberikan wadah bagi masyarakat dalam menyampaikan keluhan atau masukan terkait layanan publik, infrastruktur, atau masalah lain yang memerlukan perhatian.</p>
@@ -194,7 +197,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <h2 class="mb-4">6. Pembaruan Kebijakan</h2>
     <p>Kebijakan ini dapat diperbarui dari waktu ke waktu. Pengguna akan diberitahukan tentang pembaruan yang terjadi, dan kebijakan yang terbaru akan berlaku setelah dipublikasikan di situs ini.</p>
   </section>
-
+    -->
 
     <div class="container my-5">
       <h1 class="text-center mb-4">Frequently Asked Questions (FAQ)</h1>
@@ -237,27 +240,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="col-md-4">
         <div class="card">
           <img src="https://via.placeholder.com/300" class="card-img-top" alt="Foto 1">
-          <div class="card-body">
-            <p class="card-text">Deskripsi singkat foto 1.</p>
-          </div>
         </div>
       </div>
       <!-- Foto 2 -->
       <div class="col-md-4">
         <div class="card">
           <img src="https://via.placeholder.com/300" class="card-img-top" alt="Foto 2">
-          <div class="card-body">
-            <p class="card-text">Deskripsi singkat foto 2.</p>
-          </div>
         </div>
       </div>
       <!-- Foto 3 -->
       <div class="col-md-4">
         <div class="card">
           <img src="https://via.placeholder.com/300" class="card-img-top" alt="Foto 3">
-          <div class="card-body">
-            <p class="card-text">Deskripsi singkat foto 3.</p>
-          </div>
         </div>
       </div>
     </div>
@@ -273,7 +267,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="card-body">
             <h5 class="card-title">Judul Berita 1</h5>
             <p class="card-text">Ringkasan singkat dari berita pertama. Klik untuk membaca lebih lanjut.</p>
-            <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
           </div>
         </div>
       </div>
@@ -283,7 +276,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="card-body">
             <h5 class="card-title">Judul Berita 2</h5>
             <p class="card-text">Ringkasan singkat dari berita kedua. Klik untuk membaca lebih lanjut.</p>
-            <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
           </div>
         </div>
       </div>

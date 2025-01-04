@@ -44,6 +44,23 @@ class Akun_model extends CI_Model{
         return false;
     }
 
+    public function login_staff($id_staff, $password_staff) {
+        $this->db->where('id_staff', $id_staff);
+        $query = $this->db->get('staff');
+
+		// var_dump($query);die();////////////////////////////
+        
+        if ($query->num_rows() == 1) {
+            $staff = $query->row();
+			
+			// var_dump($staff->password_staff);die();////////////////////////////
+            if ($password_staff == $staff->password_staff) {				
+                return $staff;
+            }
+        }
+        return false;
+    }
+
 	public function mengecek_session()
 	{
 		if($this->session->userdata('login')){

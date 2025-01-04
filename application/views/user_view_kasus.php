@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <h1>List Kasus</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="<?=site_url('admin')?>">Home</a></li>
+          <li class="breadcrumb-item"><a href="<?=site_url('user/view_kasus')?>">Home</a></li>
           <li class="breadcrumb-item active">Lists Kasus</li>
         </ol>
       </nav>

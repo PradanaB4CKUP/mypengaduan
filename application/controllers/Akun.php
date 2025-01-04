@@ -20,6 +20,11 @@ class Akun extends CI_Controller {
 		$this->load->view('akun_login_pelapor');
 	}
 
+	public function akun_staff()
+	{
+		$this->load->view('akun_login_staff');
+	}
+
 	public function login_go()
 	{
 		//ambil id & password

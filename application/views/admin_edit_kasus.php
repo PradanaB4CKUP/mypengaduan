@@ -76,12 +76,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   </div>
                 </div>
 				
+                <div class="row mb-3 d-none">
+                  <label for="inputText" class="col-sm-2 col-form-label">Id Pelapor</label>
+                  <div class="col-sm-10">
+                    <input name="id_pelapor" type="hidden" value="<?=$obj_kasus->id_pelapor?>" class="form-control">
+                  </div>
+                </div>
+
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Nama Pelapor</label>
                   <div class="col-sm-10">
-                    <input name="id_pelapor" type="text" value="<?=$obj_kasus->id_pelapor?>" class="form-control">
+                    <input name="nama_pelapor" type="text" readonly value="<?=substr($obj_kasus->nama_pelapor,0,3).'####'?>" class="form-control">
                   </div>
                 </div>
+
+
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Deskripsi Kasus</label>
                   <div class="col-sm-10">
