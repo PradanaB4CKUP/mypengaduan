@@ -13,7 +13,10 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$data['array_komponen'] = $this->crud_model->mengambil_data('komponen');
+		// var_dump($data);die();
+
+		$this->load->view('welcome_message',$data);
 	}
 
 	public function lapor()
