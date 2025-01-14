@@ -4,10 +4,20 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="<?=site_url('staff/index')?>">
-        <i class="bi bi-gear"></i>
-          <span>Setting</span>
+        <i class="bi bi-image"></i>
+          <span>Galeri</span>
         </a>
-      </li><!-- End Profile Page Nav -->
+      </li>
+      
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="<?=site_url('staff/berita')?>">
+        <i class="bi bi-newspaper"></i>
+          <span>Berita</span>
+        </a>
+      </li>
+      
+      <!-- End Profile Page Nav -->
 	  <!--
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">

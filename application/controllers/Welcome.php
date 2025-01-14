@@ -9,11 +9,13 @@ class Welcome extends CI_Controller {
 		//load model
 		$this->load->model('akun_model');
 		$this->load->model('crud_model');
+		$this->load->model('Image_model');
 	}
 
 	public function index()
 	{
-		$data['array_komponen'] = $this->crud_model->mengambil_data('komponen');
+		$data['images'] = $this->Image_model->get_images();
+		$data['array_berita'] = $this->crud_model->mengambil_data('berita');
 		// var_dump($data);die();
 
 		$this->load->view('welcome_message',$data);

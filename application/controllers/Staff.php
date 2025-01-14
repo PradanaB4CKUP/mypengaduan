@@ -8,12 +8,74 @@ class Staff extends CI_Controller {
 		//load model
 		$this->load->model('akun_model');
 		$this->load->model('crud_model');
+		$this->load->model('Image_model');
+		$this->load->helper(array('form', 'url'));	
 	}
 
 	public function index()
 	{		
-		$this->load->view('staff_index');
+		$data['images'] = $this->Image_model->get_images();
+		$this->load->view('staff_index', $data);
 	}	
+
+	public function berita()
+	{		
+		$data['array_berita'] = $this->crud_model->mengambil_data('berita');
+		$this->load->view('staff_berita', $data);
+	}	
+
+	public function create_image() {
+		$this->load->view('staff_create_image');
+	}	
+
+	public function create_berita() {
+		$this->load->view('staff_create_berita');
+	}	
+
+	public function store_berita() {
+		$data = array(
+		'title' => $this->input->post('title'),
+		'isi' => $this->input->post('isi')
+		);
+
+		//tampilkan view
+		$this->crud_model->masukan_data('berita', $data);
+		
+		//redirect
+		redirect('staff/berita', 'refresh');
+	  }	
+
+	public function store_image() {
+		$image_path = realpath(APPPATH . '../images');
+		$config['upload_path'] =  $image_path;
+		$config['allowed_types'] = 'gif|jpg|png';
+		$this->load->library('upload', $config);
+		  
+		if (!$this->upload->do_upload('image')) {
+		  $error = array('error' => $this->upload->display_errors());
+		  var_dump($error);die();
+		} else {
+		  $data = array(
+			'title' => $this->input->post('title'),
+			'image' => $this->upload->data('file_name')
+		  );
+		  $this->Image_model->insert_image($data);
+		  redirect('staff/index');
+		}
+	  }	
+
+	  public function delete_image($id) {
+		$this->Image_model->delete_image($id);
+		redirect('staff/index');
+	  }	
+
+	  public function delete_berita($id) {
+		//load model hapus data
+		$this->crud_model->menghapus_data_id('berita','id_berita',$id);
+
+		//redirect
+		redirect('staff/berita', 'refresh');
+	  }	
 
 	public function login_staff() {
         $id_staff = $this->input->post('id_staff');

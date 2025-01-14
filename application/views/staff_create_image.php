@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Dashboard Staff</title>
+  <title>Tambah Gambar Staff</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -47,26 +47,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Galeri</h1>
+      <h1>Setting</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="<?=site_url('staff')?>">Home</a></li>
-          <li class="breadcrumb-item active">Galeri</li>
+          <li class="breadcrumb-item active">Setting</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
-  <h1>Daftar Gambar</h1>
-  <a href="<?php echo site_url('staff/create_image'); ?>">Tambah Gambar</a>
-  <ul>
-  <?php foreach ($images as $image): ?>
-    <li>
-      <img src="<?php echo base_url('images/' . $image['image']); ?>" width="100" height="100">
-      <p><?php echo $image['title']; ?></p>
-      <a href="<?php echo site_url('staff/delete_image/' . $image['id']); ?>">Hapus</a>
-    </li>
-  <?php endforeach; ?>
-  </ul>
+  <h1>Tambah Gambar</h1>
+  <?php echo form_open_multipart('staff/store_image'); ?>
+  <p>Judul: <input type="text" name="title"></p>
+  <p>Gambar: <input type="file" name="image"></p>
+  <p><input type="submit" value="Upload"></p>
+  </form>
 
   </main><!-- End #main -->
 

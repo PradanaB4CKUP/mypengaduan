@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 19, 2024 at 04:43 AM
+-- Generation Time: Jan 14, 2025 at 11:53 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -42,6 +42,59 @@ INSERT INTO `akun` (`id`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `banner`
+--
+
+CREATE TABLE `banner` (
+  `id_banner` int(255) NOT NULL,
+  `gambar` varchar(255) NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `deskripsi` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `berita`
+--
+
+CREATE TABLE `berita` (
+  `id_berita` int(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `isi` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `berita`
+--
+
+INSERT INTO `berita` (`id_berita`, `title`, `isi`) VALUES
+(2, 'asdasd', 'asdas');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `images`
+--
+
+CREATE TABLE `images` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `images`
+--
+
+INSERT INTO `images` (`id`, `title`, `image`) VALUES
+(3, 'asdas', 'WhatsApp_Image_2025-01-05_at_14_14_45_0a4fdb1d.jpg'),
+(4, 'test', 'WhatsApp_Image_2025-01-05_at_14_14_45_0a4fdb1d1.jpg'),
+(5, 'jaosd', 'Copy_of_Copy_of_Copy_of_SMP_PGRI_Rawalumbu_(YouTube_Thumbnail).png');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `kasus`
 --
 
@@ -67,6 +120,24 @@ INSERT INTO `kasus` (`id_kasus`, `tanggal_laporan`, `id_pelapor`, `deskripsi_kas
 (7, '2024-12-20', 11, '134134', 'Sedang berjalan'),
 (10, '2024-12-12', 15, 'Pencurian', 'Sedang berjalan'),
 (11, '2024-12-06', 16, 'penculikan', 'Sedang berjalan');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `komponen`
+--
+
+CREATE TABLE `komponen` (
+  `komponen` varchar(255) NOT NULL,
+  `isi` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `komponen`
+--
+
+INSERT INTO `komponen` (`komponen`, `isi`) VALUES
+('header', 'Tempat Laporan Terbuka');
 
 -- --------------------------------------------------------
 
@@ -106,6 +177,24 @@ INSERT INTO `pelapor` (`id_pelapor`, `nama_pelapor`, `alamat`, `nomor_telpon`) V
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `staff`
+--
+
+CREATE TABLE `staff` (
+  `id_staff` varchar(255) NOT NULL,
+  `password_staff` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `staff`
+--
+
+INSERT INTO `staff` (`id_staff`, `password_staff`) VALUES
+('staff', 'staff');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -134,6 +223,24 @@ ALTER TABLE `akun`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `banner`
+--
+ALTER TABLE `banner`
+  ADD PRIMARY KEY (`id_banner`);
+
+--
+-- Indexes for table `berita`
+--
+ALTER TABLE `berita`
+  ADD PRIMARY KEY (`id_berita`);
+
+--
+-- Indexes for table `images`
+--
+ALTER TABLE `images`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `kasus`
 --
 ALTER TABLE `kasus`
@@ -147,6 +254,12 @@ ALTER TABLE `pelapor`
   ADD PRIMARY KEY (`id_pelapor`);
 
 --
+-- Indexes for table `staff`
+--
+ALTER TABLE `staff`
+  ADD PRIMARY KEY (`id_staff`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -156,6 +269,24 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `banner`
+--
+ALTER TABLE `banner`
+  MODIFY `id_banner` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `berita`
+--
+ALTER TABLE `berita`
+  MODIFY `id_berita` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `images`
+--
+ALTER TABLE `images`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `kasus`

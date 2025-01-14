@@ -134,6 +134,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
     </div>
 
+    <?php /*
 <!-- Carousel Banner -->
 <div id="carouselExampleCaptions" class="carousel slide mt-2" data-bs-ride="carousel">
     <div class="carousel-indicators">
@@ -176,6 +177,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <span class="visually-hidden">Next</span>
     </button>
   </div>
+  */
+  ?>
 
 <!-- Kebijakan Pengaduan
 <section class="container my-5">
@@ -235,25 +238,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- Galeri Foto -->
 <section class="container my-5">
     <h2 class="text-center mb-4">Galeri Foto</h2>
+
     <div class="row g-3">
-      <!-- Foto 1 -->
-      <div class="col-md-4">
+    <?php foreach ($images as $image): ?>
+      <div class="col">
         <div class="card">
-          <img src="https://via.placeholder.com/300" class="card-img-top" alt="Foto 1">
+          <img src="<?php echo base_url('images/' . $image['image']); ?>" width="300" height="300" alt="<?php echo $image['title']; ?>">
         </div>
       </div>
-      <!-- Foto 2 -->
-      <div class="col-md-4">
-        <div class="card">
-          <img src="https://via.placeholder.com/300" class="card-img-top" alt="Foto 2">
-        </div>
-      </div>
-      <!-- Foto 3 -->
-      <div class="col-md-4">
-        <div class="card">
-          <img src="https://via.placeholder.com/300" class="card-img-top" alt="Foto 3">
-        </div>
-      </div>
+    <?php endforeach; ?>
     </div>
   </section>
 
@@ -261,24 +254,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <section class="container my-5">
     <h2 class="text-center mb-4">Berita Terkini</h2>
     <div class="row g-3">
+    <?php foreach ($array_berita as $berita): ?>
       <!-- Berita 1 -->
       <div class="col-md-6">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Judul Berita 1</h5>
-            <p class="card-text">Ringkasan singkat dari berita pertama. Klik untuk membaca lebih lanjut.</p>
+            <h5 class="card-title"><?=$berita->title?></h5>
+            <p class="card-text"><?=$berita->isi?></p>
           </div>
         </div>
       </div>
-      <!-- Berita 2 -->
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Judul Berita 2</h5>
-            <p class="card-text">Ringkasan singkat dari berita kedua. Klik untuk membaca lebih lanjut.</p>
-          </div>
-        </div>
-      </div>
+    <?php endforeach; ?>
     </div>
   </section>
 	
