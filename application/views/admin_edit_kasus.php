@@ -100,7 +100,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Status Kasus</label>
                   <div class="col-sm-10">
-                    <input name="status_kasus" type="text" value="<?=$obj_kasus->status_kasus?>" class="form-control">
+                    <select name="status_kasus" class="form-select">
+                      <option value="Sedang berjalan">Sedang berjalan</option>
+                      <option <?=($obj_kasus->status_kasus == 'Selesai') ? 'selected' : '';?> value="Selesai">Selesai</option>
+                    </select>
                   </div>
                 </div>
                 

@@ -135,7 +135,7 @@ class Admin extends CI_Controller {
 	public function edit_kasus($id)
 	{
 		//load model crud
-		$data['array_kasus'] = $this->crud_model->mengambil_data_join_id('kasus',['pelapor'],'pelapor.id_pelapor',$id);
+		$data['array_kasus'] = $this->crud_model->mengambil_data_join_id('kasus',['pelapor'],'kasus.id_kasus',$id);
 		// mengambil_data_id('kasus','id_kasus',$id);
 		
 		$data['obj_kasus'] = $data['array_kasus'][0];
