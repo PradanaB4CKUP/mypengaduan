@@ -8,6 +8,26 @@ class User extends CI_Controller {
 		//load model
 		$this->load->model('akun_model');
 		$this->load->model('crud_model');
+		// $this->load->library('Telegram');
+		function sendMessage($telegram_id, $message_text, $secret_token) {
+			$url = "https://api.telegram.org/bot" . $secret_token . "/sendMessage?parse_mode=markdown&chat_id=" . $telegram_id;
+			$url = $url . "&text=" . urlencode($message_text);
+			$ch = curl_init();
+			$optArray = array(
+					CURLOPT_URL => $url,
+					CURLOPT_RETURNTRANSFER => true
+			);
+			curl_setopt_array($ch, $optArray);
+			$result = curl_exec($ch);
+			$err = curl_error($ch);
+			curl_close($ch);
+		
+			if ($err) {
+			   echo 'Pesan gagal terkirim, error :' . $err;
+			}else{
+				echo 'Pesan terkirim';
+			}
+		}
 	}
 
 	public function index()
@@ -334,7 +354,14 @@ class User extends CI_Controller {
 		
 		//tampilkan view
 		$this->crud_model->masukan_data('kasus', $data);
+
+		$telegram_id = '6277596151'; // Ganti dengan Chat ID Anda
+        $message_text = 'Ini adalah pesan uji dari CodeIgniter 3 menggunakan Telegram API';
+		$secret_token = '7717439446:AAGpoRZZhZF7M9a_0Mv28oSMbC091NW_k4E';
+		sendMessage($telegram_id, $message_text, $secret_token);
 		
+		
+		die();
 		//redirect
 		redirect('/user/view_kasus', 'refresh');
 	}	
