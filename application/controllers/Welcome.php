@@ -10,6 +10,8 @@ class Welcome extends CI_Controller {
 		$this->load->model('akun_model');
 		$this->load->model('crud_model');
 		$this->load->model('Image_model');
+
+		redirect('http://localhost:8080/pengaduanku', 'refresh');
 	}
 
 	public function index()
