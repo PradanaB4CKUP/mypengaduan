@@ -386,5 +386,35 @@ class Admin extends CI_Controller {
 
 		//redirect
 		// redirect('/admin/view_kasus', 'refresh');		
-	}	
+	}
+
+	public function send_mail()
+	{
+        $this->load->library('email');
+
+		$config['protocol'] = 'smtp';
+		$config['smtp_host'] = 'sandbox.smtp.mailtrap.io'; // Ganti dengan host SMTP anda
+		$config['smtp_user'] = '1b4dbc69fa6738'; // Ganti dengan email anda
+		$config['smtp_pass'] = '949f5f0d5bc223'; // Ganti dengan password anda
+		$config['smtp_port'] = 25;
+		$config['mailtype'] = 'html';
+		$config['charset']  = 'iso-8859-1';
+		$config['wordwrap'] = TRUE;
+
+        $from_email = "email@example.com";
+        $to_email = 'yikerok695@eluxeer.com';
+        //Load email library
+        $this->email->from($from_email, 'Identification');
+        $this->email->to($to_email);
+        $this->email->subject('Send Email Codeigniter');
+        $this->email->message('The email send using codeigniter library');
+        //Send mail
+        if($this->email->send())
+            $this->session->set_flashdata("email_sent","Congragulation Email Send Successfully.");
+        else
+            $this->session->set_flashdata("email_sent","You have encountered an error");
+        $this->load->view('contact_email_form');		
+	}
+
+	
 }
