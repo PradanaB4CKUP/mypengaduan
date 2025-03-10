@@ -64,7 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="card-body">
                   <div class="d-flex justify-content-between">
 					<h5 class="card-title">Data pelapor</h5>
-					<button class="btn btn-sm text-primary"><a href="<?=site_url('admin/add_pelapor')?>">Tambah pelapor</a></button>
+					<!-- <button class="btn btn-sm text-primary"><a href="<?=site_url('admin/add_pelapor')?>">Tambah pelapor</a></button> -->
 				  </div>
 
                   <table class="table table-borderless datatable">
@@ -72,9 +72,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Nama Pelapor</th>
+                        <th scope="col">NIM/NIP/NIKaryawan</th>
+                        <th scope="col">Email</th>
                         <th scope="col">Alamat</th>
                         <th scope="col">No Telpon</th>
-                        <th scope="col">Aksi</th>
+                        <!-- <th scope="col">Aksi</th> -->
                       </tr>
                     </thead>
                     <tbody>
@@ -82,9 +84,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										  <tr>
 											<th scope="row"><?=$pelapor->id_pelapor?></th>
 											<td><?=$pelapor->nama_pelapor?></td>
+                      <td><?=$pelapor->nip?></td>
+                      <td><?=$pelapor->email?></td>
 											<td><?=$pelapor->alamat?></td>
 											<td><?=$pelapor->nomor_telpon?></td>
-											<td><a href="<?=site_url('admin/edit_pelapor/'.$pelapor->id_pelapor)?>"><i class="bi bi-pencil-square"></i></a> | <a href="<?=site_url('admin/hapus_pelapor/'.$pelapor->id_pelapor)?>"><i class="bi bi-trash3"></i></a> </td>
+											<!-- <td><a href="<?=site_url('admin/edit_pelapor/'.$pelapor->id_pelapor)?>"><i class="bi bi-pencil-square"></i></a></td> -->
 										  </tr>
 					<?php endforeach; ?>
                     </tbody>

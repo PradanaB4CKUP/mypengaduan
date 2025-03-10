@@ -64,13 +64,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="card-body">
                   <div class="d-flex justify-content-between">
 					<h5 class="card-title">Data Kasus</h5>
-					<button class="btn btn-sm text-primary"><a href="<?=site_url('admin/add_Kasus')?>">Tambah Kasus</a></button>
+					<!-- <button class="btn btn-sm text-primary"><a href="<?=site_url('admin/add_Kasus')?>">Tambah Kasus</a></button> -->
 				  </div>
-
+            <button class="btn btn-sm text-white btn-warning"><a href="<?=site_url('admin/export')?>">Export CSV</a></button>
                   <table class="table table-borderless datatable">
                     <thead>
                       <tr>
                         <th scope="col">ID</th>
+                        <th scope="col">Tanggal Pengaduan</th>
                         <th scope="col">Tanggal Laporan</th>
                         <th scope="col">Nama Pelapor</th>
                         <th scope="col">Deskripsi Laporan</th>
@@ -82,11 +83,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php foreach($array_kasus as $kasus): ?>
                       <tr>
                         <th scope="row"><?=$kasus->id_kasus?></th>
+                        <td><?=$kasus->tanggal_melapor?></td>
                         <td><?=$kasus->tanggal_laporan?></td>
                         <td><?=substr($kasus->nama_pelapor,0,3).'####'?></td>
                         <td><?=$kasus->deskripsi_kasus?></td>
                         <td><?=$kasus->status_kasus?></td>
-                        <td><a href="<?=site_url('admin/edit_Kasus/'.$kasus->id_kasus)?>"><i class="bi bi-pencil-square"></i></a> | <a href="<?=site_url('admin/hapus_Kasus/'.$kasus->id_kasus)?>"><i class="bi bi-trash3"></i></a> </td>
+                        <td><a href="<?=site_url('admin/edit_kasus/'.$kasus->id_kasus)?>"><i class="bi bi-pencil-square"></i></a></td>
                       </tr>
 <?php endforeach; ?>
                     </tbody>

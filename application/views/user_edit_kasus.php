@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Buat Laporan</title>
+  <title>Edit kasus</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -46,11 +46,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Buat Laporan</h1>
+      <h1>Edit kasus</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="<?=site_url('user/view_kasus')?>">Home</a></li>
-          <li class="breadcrumb-item active">Buat Laporan</li>
+          <li class="breadcrumb-item active">Edit kasus</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -59,37 +59,55 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 		<div class="card">
             <div class="card-body">
-              <h5 class="card-title">Menambah Laporan</h5>
+              <h5 class="card-title">Mengubah kasus</h5>
 
               <!-- General Form Elements -->
-              <form action="<?=site_url('user/add_kasus_go')?>" method="post">
+              <form action="<?=site_url('user/edit_kasus_user_go')?>" method="post">
+                <div class="row mb-3 d-none"> 
+                  <div class="col-sm-10">
+                    <input name="id_kasus" type="hidden" value="<?=$obj_kasus->id_kasus?>" class="form-control">
+                  </div>
+                </div>
+
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Tanggal Peristiwa</label>
                   <div class="col-sm-10">
-                    <input name="tanggal_laporan" id="tanggal_laporan" type="date" required class="form-control">
+                    <input name="tanggal_laporan" type="date" required value="<?=$obj_kasus->tanggal_laporan?>" class="form-control">
                   </div>
                 </div>
 				
                 <div class="row mb-3 d-none">
-                  <label for="inputText" class="col-sm-2 col-form-label">id pelapor</label>
+                  <label for="inputText" class="col-sm-2 col-form-label">Id Pelapor</label>
                   <div class="col-sm-10">
-                    <input name="id_pelapor" type="hidden" value="<?=$this->session->userdata('id_pelapor')?>" class="form-control">
+                    <input name="id_pelapor" type="hidden" value="<?=$obj_kasus->id_pelapor?>" class="form-control">
                   </div>
                 </div>
-				
+
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Deskripsi Kasus</label>
                   <div class="col-sm-10">
-                    <textarea class="form-control" name="deskripsi_kasus" id="exampleTextarea" required rows="4" placeholder="Masukkan teks di sini..."></textarea>
+                    <textarea class="form-control" name="deskripsi_kasus" id="exampleTextarea" required rows="4"><?=$obj_kasus->deskripsi_kasus?></textarea>
                   </div>
                 </div>
-				
+                
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">Status Kasus</label>
+                  <div class="col-sm-10">
+                    <select name="status_kasus" class="form-select" disabled>
+                    <option <?=($obj_kasus->status_kasus == 'Sedang berjalan') ? 'selected' : '';?>value="Sedang berjalan">Sedang berjalan</option>  
+                    <option <?=($obj_kasus->status_kasus == 'Ditolak') ? 'selected' : '';?> value="Ditolak">Ditolak</option>
+                    <option <?=($obj_kasus->status_kasus == 'Selesai') ? 'selected' : '';?> value="Selesai">Selesai</option>
+                    </select>
+                  </div>
+                </div>
+
                 <div class="row mb-3">
                   <label class="col-sm-2 col-form-label"></label>
                   <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" <?= ($obj_kasus->status_kasus == 'Selesai') ? 'disabled' : ''; ?>>Ubah</button>
                   </div>
                 </div>
+
 
               </form><!-- End General Form Elements -->
 
@@ -113,10 +131,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <script src="<?=base_url()?>css/tinymce/tinymce.min.js"></script>
   <script src="<?=base_url()?>css/php-email-form/validate.js"></script>
   <script src="<?=base_url()?>js/bootstrap.bundle.min.js"></script>
-  <script>
-  let today = new Date().toISOString().split("T")[0]; 
-  document.getElementById("tanggal_laporan").setAttribute("max", today);
-  </script>
+
   <!-- Template Main JS File -->
   <script src="<?=base_url()?>js/main.js"></script>
 

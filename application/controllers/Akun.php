@@ -45,6 +45,8 @@ class Akun extends CI_Controller {
 		//variabel data
 		$data = array(
 			'nama_pelapor' => $this->input->post('nama_pelapor'),
+			'nip' => $this->input->post('nip'),
+			'email' => $this->input->post('email'),
 			'alamat' => $this->input->post('alamat'),
 			'nomor_telpon' => $this->input->post('nomor_telpon')
 		);

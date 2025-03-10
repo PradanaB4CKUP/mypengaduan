@@ -217,17 +217,6 @@ class Staff extends CI_Controller {
 	{
 		$this->load->view('admin_add_waktu_sewa');
 	}	
-	
-	public function edit_kasus($id)
-	{
-		//load model crud
-		$data['array_kasus'] = $this->crud_model->mengambil_data_id('kasus','id_kasus',$id);
-		$data['obj_kasus'] = $data['array_kasus'][0];
-		
-		// var_dump($data);die();
-
-		$this->load->view('admin_edit_kasus', $data);
-	}	
 
 	public function edit_waktu_sewa($id)
 	{
@@ -299,25 +288,6 @@ class Staff extends CI_Controller {
 		//redirect
 		redirect('/admin/view_pelapor', 'refresh');
 	}
-
-	public function edit_kasus_go()
-	{
-		// var_dump($_POST);
-
-		//variabel data edit
-		$data = array(
-			'tanggal_laporan' => $this->input->post('tanggal_laporan'),
-			'id_pelapor' => $this->input->post('id_pelapor'),
-			'deskripsi_kasus' => $this->input->post('deskripsi_kasus'),
-			'status_kasus' => $this->input->post('status_kasus')		
-		);
-
-		//load model mengubah data
-		$this->crud_model->mengubah_data_id('kasus', $data,'id_kasus',$this->input->post('id_kasus'));
-		
-		//redirect
-		redirect('/admin/view_kasus', 'refresh');
-	}	
 	
 	public function edit_pelapor_go()
 	{

@@ -57,19 +57,25 @@ a{
             </div>
 
             <div class="mb-3">
-              <input name="nama_pelapor" type="text" class="form-control" id="NamaLengkap" placeholder="Nama Lengkap">
+              <input name="nama_pelapor" type="text" class="form-control" id="nama_pelapor" placeholder="Nama Lengkap">
             </div>
             <div class="mb-3">
-              <input name="alamat" type="text" class="form-control" id="alamat" placeholder="alamat">
+              <input name="nip" type="text" class="form-control" id="nip" placeholder="NIM/NIP/NIKaryawan">
             </div>
             <div class="mb-3">
-              <input name="nomor_telpon" type="text" class="form-control" id="nomor_telpon" placeholder="nomor telpon">
+              <input name="email" type="text" class="form-control" id="email" placeholder="Email">
             </div>
             <div class="mb-3">
-              <input name="id_user" type="text" class="form-control" id="Username" placeholder="Username">
+              <input name="alamat" type="text" class="form-control" id="alamat" placeholder="Alamat">
             </div>
             <div class="mb-3">
-              <input name="password_user" type="password" class="form-control" id="Password" placeholder="Password">
+              <input name="nomor_telpon" type="text" class="form-control" id="nomor_telpon" placeholder="Nomor Hp/Tlp">
+            </div>
+            <div class="mb-3">
+              <input name="id_user" type="text" class="form-control" id="id_user" placeholder="Username">
+            </div>
+            <div class="mb-3">
+              <input name="password_user" type="password" class="form-control" id="password_user" placeholder="Password">
             </div>
             <div class="text-center"><button type="submit" class="btn btn-color px-5 mb-3 w-100">Daftar</button></div>
           </form>

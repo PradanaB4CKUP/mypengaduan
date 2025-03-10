@@ -57,21 +57,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <section class="section dashboard">
 
-
             <!-- Recent Sales -->
               <div class="card recent-sales overflow-auto">
-
                 <div class="card-body">
                   <div class="d-flex justify-content-between">
-					<h5 class="card-title">Data Kasus</h5>
-					<button class="btn btn-sm text-primary"><a href="<?=site_url('user/add_kasus')?>">Buat Laporan</a></button>
-				  </div>
+                    <h5 class="card-title">Data Kasus</h5>
+                    <button class="btn btn-sm text-primary"><a href="<?=site_url('user/add_kasus')?>">Buat Laporan</a></button>
+				          </div>
 
                   <table class="table table-borderless datatable">
                     <thead>
                       <tr>
                         <th scope="col">ID</th>
-                        <th scope="col">Tanggal Laporan</th>
+                        <th scope="col">Tanggal Pengaduan</th>
+                        <th scope="col">Tanggal Peristiwa</th>
                         <th scope="col">Nama Pelapor</th>
                         <th scope="col">Deskripsi Laporan</th>
                         <th scope="col">Status</th>
@@ -79,16 +78,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       </tr>
                     </thead>
                     <tbody>
-<?php foreach($array_kasus as $kasus): ?>
-                      <tr>
-                        <th scope="row"><?=$kasus->id_kasus?></th>
-                        <td><?=$kasus->tanggal_laporan?></td>
-                        <td><?=$kasus->nama_pelapor?></td>
-                        <td><?=$kasus->deskripsi_kasus?></td>
-                        <td><?=$kasus->status_kasus?></td>
-                        <td><a href="<?=site_url('user/hapus_Kasus/'.$kasus->id_kasus)?>"><i class="bi bi-trash3"></i></a> </td>
-                      </tr>
-<?php endforeach; ?>
+                      <?php foreach($array_kasus as $kasus): ?>
+                        <tr>
+                          <th scope="row"><?=$kasus->id_kasus?></th>
+                          <td><?=$kasus->tanggal_melapor?></td>
+                          <td><?=$kasus->tanggal_laporan?></td>
+                          <td><?=$kasus->nama_pelapor?></td>
+                          <td><?=$kasus->deskripsi_kasus?></td>
+                          <td><?=$kasus->status_kasus?></td>
+                          <td><a href="<?=site_url('user/edit_kasus_user/'.$kasus->id_kasus)?>"><i class="bi bi-pencil-square"></i></a> | <a href="<?=site_url('user/hapus_kasus/'.$kasus->id_kasus)?>"><i class="bi bi-trash3"></i></a></td>
+                        </tr>
+                      <?php endforeach; ?>
                     </tbody>
                   </table>
 

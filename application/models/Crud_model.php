@@ -36,6 +36,20 @@ class Crud_model extends CI_Model{
 		return $query->result();
 	}
 
+	public function mengambil_data_join_id($nama_tabel,$array_tabel, $nama_colum, $id)
+	{
+		// var_dump($array_tabel);die();
+		
+		$this->db->select('*');
+		$this->db->from($nama_tabel);
+		foreach($array_tabel as $tabel){
+			$this->db->join($tabel, $nama_tabel.'.id_'.$tabel.' = '.$tabel.'.id_'.$tabel.'');
+		}
+		$this->db->where($nama_colum, $id);
+		$query = $this->db->get();
+		return $query->result();
+	}
+
 	public function mengambil_data_join_interval($nama_tabel, $tanggal_awal, $tanggal_akhir)
 	{
 		$tanggal_awal = "'$tanggal_awal 00:00:01'";
@@ -53,21 +67,6 @@ class Crud_model extends CI_Model{
 		$query = $this->db->get();
 		return $query->result();
 	}
-
-	public function mengambil_data_join_id($nama_tabel,$array_tabel, $nama_colum, $id)
-	{
-		// var_dump($array_tabel);die();
-		
-		$this->db->select('*');
-		$this->db->from($nama_tabel);
-		foreach($array_tabel as $tabel){
-			$this->db->join($tabel, $nama_tabel.'.id_'.$tabel.' = '.$tabel.'.id_'.$tabel.'');
-		}
-		$this->db->where($nama_colum, $id);
-		$query = $this->db->get();
-		return $query->result();
-	}
-
 	// public function mengambil_data_join_id($nama_tabel, $nama_colum, $id)
 	// {
 		// $this->db->select('*');

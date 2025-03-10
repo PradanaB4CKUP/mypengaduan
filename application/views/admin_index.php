@@ -61,10 +61,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					  <div class="col card info-card sales-card m-3">
 						<div class="card-body">
 						  <h5 class="card-title">Jumlah Pelapor</h5>
-
 						  <div class="d-flex align-items-center">
 							<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-              <i class="bi bi-people-fill"></i>
+              					<i class="bi bi-people-fill"></i>
 							</div>
 							<div class="ps-3">
 							  <h6><?=$jumlah_pelapor?></h6>
@@ -73,15 +72,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						  </div>
 						</div>
 					  </div>					  
+					</div>			  
 					</div>
+
 					<div class="row">
 					  <div class="col card info-card sales-card m-3">
 						<div class="card-body">
 						  <h5 class="card-title">Jumlah Kasus</h5>
-
 						  <div class="d-flex align-items-center">
 							<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-              <i class="bi bi-exclamation-diamond-fill"></i>
+              					<i class="bi bi-exclamation-diamond-fill"></i>
 							</div>
 							<div class="ps-3">
 							  <h6><?=$jumlah_kasus?></h6>
@@ -91,14 +91,47 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</div>
 					  </div>					  
 					</div>
+
 					<div class="row">
 					  <div class="col card info-card sales-card m-3">
 						<div class="card-body">
-						  <h5 class="card-title">Jumlah Dalam Penanganan</h5>
-
+						  <h5 class="card-title">Jumlah Kasus Baru</h5>
 						  <div class="d-flex align-items-center">
 							<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-              <i class="bi bi-arrow-counterclockwise"></i>
+							<i class="bi bi-ticket"></i>
+							</div>
+							<div class="ps-3">
+							  <h6><?=$jumlah_kasus_masuk?></h6>
+							  <span class="text-muted small pt-2 ps-1">Total Kasus Baru</span>
+							</div>
+						  </div>
+						</div>
+					  </div>					  
+					</div>
+
+					<div class="row">
+					  <div class="col card info-card sales-card m-3">
+						<div class="card-body">
+						  <h5 class="card-title">Jumlah Kasus Ditolak</h5>
+						  <div class="d-flex align-items-center">
+							<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+							<i class="bi bi-x-circle-fill"></i>
+							</div>
+							<div class="ps-3">
+							  <h6><?=$jumlah_kasus_tolak?></h6>
+							  <span class="text-muted small pt-2 ps-1">Total Kasus Ditolak</span>
+							</div>
+						  </div>
+						</div>
+					  </div>			
+
+					  <div class="row">
+					  <div class="col card info-card sales-card m-3">
+						<div class="card-body">
+						  <h5 class="card-title">Jumlah Dalam Penanganan</h5>
+						  <div class="d-flex align-items-center">
+							<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+              					<i class="bi bi-arrow-counterclockwise"></i>
 							</div>
 							<div class="ps-3">
 							  <h6><?=$jumlah_kasus_berlajan?></h6>
@@ -108,14 +141,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</div>
 					  </div>					  
 					</div>
+
 					<div class="row">
 					  <div class="col card info-card sales-card m-3">
 						<div class="card-body">
 						  <h5 class="card-title">Jumlah Kasus Selesai</h5>
-
 						  <div class="d-flex align-items-center">
 							<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-               <i class="bi bi-check-circle-fill"></i>
+               					<i class="bi bi-check-circle-fill"></i>
 							</div>
 							<div class="ps-3">
 							  <h6><?=$jumlah_kasus_selesai?></h6>

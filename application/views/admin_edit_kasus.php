@@ -70,9 +70,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
 
                 <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label">Tanggal Laporan</label>
+                  <label for="inputText" class="col-sm-2 col-form-label">Tanggal Peristiwa</label>
                   <div class="col-sm-10">
-                    <input name="tanggal_laporan" type="date" value="<?=$obj_kasus->tanggal_laporan?>" class="form-control">
+                    <input name="tanggal_laporan" type="date" readonly value="<?=$obj_kasus->tanggal_laporan?>" class="form-control">
                   </div>
                 </div>
 				
@@ -94,23 +94,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Deskripsi Kasus</label>
                   <div class="col-sm-10">
-                    <textarea class="form-control" name="deskripsi_kasus" id="exampleTextarea" rows="4"><?=$obj_kasus->deskripsi_kasus?></textarea>
+                    <textarea class="form-control" name="deskripsi_kasus" readonly id="exampleTextarea" rows="4"><?=$obj_kasus->deskripsi_kasus?></textarea>
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Status Kasus</label>
                   <div class="col-sm-10">
-                    <select name="status_kasus" class="form-select">
-                      <option value="Sedang berjalan">Sedang berjalan</option>
-                      <option <?=($obj_kasus->status_kasus == 'Selesai') ? 'selected' : '';?> value="Selesai">Selesai</option>
+                    <!-- <select name="status_kasus" id="status_kasus" class="form-select"> -->
+                    <select name="status_kasus" class="form-select" <?= ($obj_kasus->status_kasus == 'Selesai') ? 'disabled' : ''; ?>>
+                    <option <?=($obj_kasus->status_kasus == 'Sedang berjalan') ? 'selected' : '';?>value="Sedang berjalan">Sedang berjalan</option>  
+                    <option <?=($obj_kasus->status_kasus == 'Ditolak') ? 'selected' : '';?> value="Ditolak">Ditolak</option>
+                    <option <?=($obj_kasus->status_kasus == 'Selesai') ? 'selected' : '';?> value="Selesai">Selesai</option>
                     </select>
+
+                    <!-- <input type="hidden" name="status_kasus_hidden" id="status_kasus_hidden" value="<?=$obj_kasus->status_kasus;?>"> -->
                   </div>
                 </div>
                 
                 <div class="row mb-3">
                   <label class="col-sm-2 col-form-label"></label>
                   <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Ubah</button>
+                    <button type="submit" class="btn btn-primary" <?= ($obj_kasus->status_kasus == 'Selesai') ? 'disabled' : ''; ?>>Ubah</button>
                   </div>
                 </div>
 

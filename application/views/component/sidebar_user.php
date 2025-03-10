@@ -8,6 +8,12 @@
           <span>Kasus</span>
         </a>
       </li><!-- End Profile Page Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="https://wa.me/628994008031">
+          <i class="bi bi-whatsapp"></i>
+          <span>Hotline Satgas</span>
+        </a>
+      </li>
 	  <!--
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
