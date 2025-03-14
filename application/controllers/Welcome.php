@@ -11,7 +11,7 @@ class Welcome extends CI_Controller {
 		$this->load->model('crud_model');
 		$this->load->model('Image_model');
 
-		redirect('http://localhost/pengaduanku', 'refresh');
+		// redirect('http://localhost/mypengaduan', 'refresh');
 	}
 
 	public function index()
