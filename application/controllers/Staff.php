@@ -57,6 +57,7 @@ class Staff extends CI_Controller {
 		} else {
 		  $data = array(
 			'title' => $this->input->post('title'),
+			'url' => $this->input->post('url'),
 			'image' => $this->upload->data('file_name')
 		  );
 		  $this->Image_model->insert_image($data);

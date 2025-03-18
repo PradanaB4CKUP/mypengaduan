@@ -58,8 +58,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   <h1>Tambah Berita</h1>
   <?php echo form_open_multipart('staff/store_berita'); ?>
-  <p>Judul: <input type="text" name="title"></p>
-  <p>Isi: <input type="text" name="isi"></p>
+  <label>Judul: </label>
+  <textarea class="form-control" id="title" name="title" rows="1"></textarea>
+  <label>Badan Berita</label>
+  <textarea class="form-control" id="isi" name="isi" rows="3"></textarea>
+  <br>
   <p><input type="submit" value="Kirim!"></p>
   </form>
 

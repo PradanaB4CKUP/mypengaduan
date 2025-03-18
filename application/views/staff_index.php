@@ -47,17 +47,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Galeri</h1>
+      <h1>Event</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="<?=site_url('staff')?>">Home</a></li>
-          <li class="breadcrumb-item active">Galeri</li>
+          <li class="breadcrumb-item active">Event</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
   <h1>Daftar Gambar</h1>
-  <a href="<?php echo site_url('staff/create_image'); ?>">Tambah Gambar</a>
+  <a href="<?php echo site_url('staff/create_image'); ?>">Tambah Event</a>
   <ul>
   <?php foreach ($images as $image): ?>
     <li>

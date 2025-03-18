@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Tambah Gambar Staff</title>
+  <title>Tambah Event</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -47,20 +47,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Setting</h1>
+      <h1>Event</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="<?=site_url('staff')?>">Home</a></li>
-          <li class="breadcrumb-item active">Setting</li>
+          <li class="breadcrumb-item active">Event</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
-  <h1>Tambah Gambar</h1>
+  <h1>Tambah Event</h1>
   <?php echo form_open_multipart('staff/store_image'); ?>
-  <p>Judul: <input type="text" name="title"></p>
-  <p>Gambar: <input type="file" name="image"></p>
-  <p><input type="submit" value="Upload"></p>
+  <label>Judul:</label>
+  <textarea class="form-control" id="title" name="title" rows="2"></textarea>
+  <br>
+  <label>Link Event:</label>
+  <textarea class="form-control" id="url" name="url" rows="1"></textarea>
+  <br>
+  <label>Gambar: <input type="file" name="image"></lable><br><br>
+  <a><input type="submit" value="Upload"></a>
   </form>
 
   </main><!-- End #main -->
