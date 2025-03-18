@@ -4,8 +4,8 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="<?=site_url('staff/index')?>">
-        <i class="bi bi-image"></i>
-          <span>Galeri</span>
+        <i class="bi bi-calendar-event"></i>
+          <span>Event</span>
         </a>
       </li>
       

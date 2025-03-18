@@ -11,8 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="generator" content="Hugo 0.84.0">
     <title>PPKPT Nusamandiri</title>
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="
-	<?=base_url()?>css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="<?=base_url()?>css/bootstrap.min.css" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <style>
@@ -36,7 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         font-family: 'Open Sans', sans-serif;
         background: linear-gradient(to left, #a2d9ff, #FFFFFF);
         margin: 0;
-        padding: 0;
+        padding: 0;        
       }
 
       h4 {
@@ -94,6 +93,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       }
       .d-flex {
         display: flex;
+        /* background: linear-gradient(to left, #a2d9ff, #FFFFFF); */
       }
       .me-3 {
         margin-right: 1.5rem; /* Adjust spacing as needed */
@@ -101,8 +101,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </style>
   </head>
   <body>
-      <div class="container mx-5">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light px-2">
+      <div class="container mx-auto">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light px-4">
       <img src="img/logo-universitas-nusa-mandiri.png" width="50px" alt="..." class="rounded">
         <a class="navbar-brand " href="
 				<?=site_url()?>">Satgas PPKPT Nusamandiri</a>
@@ -129,7 +129,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </nav>
       </div>
     
-    <section class="container mx-5">
+    <section class="container mx-auto">
         <div class="d-flex">
           <div class="col-7 mb-5 px-7 align-self-center">
           <h1 class="mb-4 fw-bold">Apa itu Satgas PPKPT ?</h1></br>
@@ -148,7 +148,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
         </div>
     </section>
-    <section class="container mx-5">
+    <section class="container mx-auto">
       <!-- Carousel Banner -->
       <div id="carouselExampleCaptions" class="carousel slide mt-2" data-bs-ride="carousel">
       <div class="carousel-indicators">
@@ -229,7 +229,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
   </section>
 <!-- Kebijakan Pengaduan -->
-<section class="container mx-5">
+<section class="container mx-auto my-5">
     <h1 class="mb-3">TUJUAN</h2>
     <p>Website pengaduan ini dibuat untuk memberikan wadah bagi mahasiswa dalam melaporkan keluhan atau masukan terkait kekerasan seksual yang terjadi di lingkungan kampus Nusa Mandiri</p>
     
@@ -242,7 +242,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <h2 class="mb-3">SYARAT PENGADUAN</h2>
     <p>Pengguna diharapkan untuk tidak mengirimkan pengaduan yang tidak sesuai dengan ketentuan atau mengandung unsur kekerasan, ujaran kebencian, atau hal-hal yang melanggar hukum. Pengaduan yang tidak memenuhi ketentuan dapat dibatalkan atau ditangguhkan prosesnya.</p>
 </section>
-<div class="container mx-5">
+<div class="container mx-auto">
       <h1 class="text-center mb-4">Frequently Asked Questions (FAQ)</h1>
       <div class="accordion" id="faqAccordion">
         <!-- Question 1 -->
@@ -276,22 +276,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
 
 <!-- Galeri Foto -->
-<section class="container mx-5">
-    <h2 class="text-center mb-4">Galeri Foto</h2>
-
+<section class="container mx-auto my-5">
+    <h2 class="text-center mb-4">Galeri Event</h2>
     <div class="row g-3">
     <?php foreach ($images as $image): ?>
       <div class="col">
-        <div class="card">
-          <img src="<?php echo base_url('images/' . $image['image']); ?>" width="300" height="300" alt="<?php echo $image['title']; ?>">
-        </div>
+    
+          <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+              <div class="card-body d-flex flex-column align-items-start">
+                <strong class="d-inline-block mb-2 text-primary"> <?php echo $image['title']; ?></strong>
+                <!-- <h6 class="mb-0">
+                    <a class="text-dark" href="#"><?php echo $image['url']; ?></a>
+                </h6> -->
+                <p>Published: <?php echo (new DateTime($image['tanggal_event']))->format('d/m/Y'); ?></p>
+                <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                <a class="btn btn-outline-primary btn-sm" role="button" href="<?php echo $image['url']; ?>">Open Event</a>
+
+              </div>
+              <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="<?php echo base_url('images/' . $image['image']); ?>" style="width: 200px; height: 250px;">
+          </div>   
+        
       </div>
     <?php endforeach; ?>
     </div>
   </section>
 
   <!-- Berita -->
-  <section class="container mx-5">
+  <section class="container mx-auto my-5">
     <h2 class="text-center mb-4">Berita Terkini</h2>
     <div class="row g-3">
     <?php foreach ($array_berita as $berita): ?>
@@ -309,7 +320,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </section>
 	
 	
-<div class="container my-5 mx-5">
+<div class="container my-5 mx-auto">
   <footer class="bg-dark text-white py-4">
     <div class="container">
 			<div class="row">
