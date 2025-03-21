@@ -62,8 +62,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <textarea class="form-control" id="title" name="title" rows="1"></textarea>
   <label>Badan Berita</label>
   <textarea class="form-control" id="isi" name="isi" rows="3"></textarea>
+  <label>Link Berita</label>
+  <textarea class="form-control" id="url_berita" name="url_berita" rows="1"></textarea>
   <br>
-  <p><input type="submit" value="Kirim!"></p>
+  <label>Keyword</label>
+  <input type="text" id="keyword" name="keyword">
+  <br>
+  <label>Gambar: <input type="file" name="gambar_berita"></label><br><br>
+  <p><input type="submit" value="Upload"></p>
   </form>
 
   </main><!-- End #main -->

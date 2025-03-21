@@ -1,5 +1,5 @@
 
-<?php
+<p?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <!DOCTYPE html>
@@ -57,13 +57,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div><!-- End Page Title -->
 
   <h1>Daftar Gambar</h1>
-  <a href="<?php echo site_url('staff/create_image'); ?>">Tambah Event</a>
+  <a class="btn btn-primary" href="<?php echo site_url('staff/create_image'); ?>">Tambah Event</a><br><br>
   <ul>
   <?php foreach ($images as $image): ?>
     <li>
       <img src="<?php echo base_url('images/' . $image['image']); ?>" width="100" height="100">
-      <p><?php echo $image['title']; ?></p>
-      <a href="<?php echo site_url('staff/delete_image/' . $image['id']); ?>">Hapus</a>
+      <p>Judul Event : </p>
+      <p><?php echo $image['title'];?></p>
+      <p>Link Event : </p>
+      <p><?php echo $image['url'];?></p>
+      <a class="btn btn-outline-warning" href="<?php echo site_url('staff/delete_image/' . $image['id']); ?>">Hapus</a><br><br>
     </li>
   <?php endforeach; ?>
   </ul>

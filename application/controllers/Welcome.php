@@ -17,7 +17,8 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		$data['images'] = $this->Image_model->get_images();
-		$data['array_berita'] = $this->crud_model->mengambil_data('berita');
+		$data['gambar_news'] = $this->Image_model->get_imagesNews();
+		// $data['array_berita'] = $this->crud_model->mengambil_data('berita');
 		// var_dump($data);die();
 
 		$this->load->view('welcome_message',$data);

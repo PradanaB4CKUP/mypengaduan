@@ -57,13 +57,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div><!-- End Page Title -->
 
   <h1>Daftar Berita</h1>
-  <a href="<?php echo site_url('staff/create_berita'); ?>">Tambah Berita</a>
+  <a class="btn btn-primary" href="<?php echo site_url('staff/create_berita'); ?>">Tambah Berita</a><br><br>
   <ul>
-  <?php foreach ($array_berita as $berita): ?>
+  <?php foreach ($array_berita as $showberita): ?>
     <li>
-      <p><?php echo $berita->title; ?></p>
-      <p><?php echo $berita->isi; ?></p>
-      <a href="<?php echo site_url('staff/delete_berita/' . $berita->id_berita ); ?>">Hapus</a>
+      <!-- untuk debug
+      <pre><?php print_r($showberita); ?></pre>
+      -->
+      <img src="<?php echo base_url('gambar_berita/' . $showberita->gambar_berita); ?>" width="100" height="100">
+      <p>Judul Berita : </p>
+      <p><?php echo $showberita->title;?></p>
+      <p>Isi Berita: </p>
+      <p><?php echo $showberita->isi;?></p>
+      <a class="btn btn-outline-warning" href="<?php echo site_url('staff/delete_berita/' . $showberita->id_berita); ?>">Hapus</a><br><br>
     </li>
   <?php endforeach; ?>
   </ul>

@@ -3,9 +3,16 @@ class Image_model extends CI_Model {
   public function get_images() {
     return $this->db->get('images')->result_array();
   }
+  public function get_imagesNews() {
+    return $this->db->get('berita')->result_array();
+  }
 
   public function insert_image($data) {
     return $this->db->insert('images', $data);
+  }
+
+  public function insert_gambar($data) {
+    return $this->db->insert('berita', $data);
   }
 
   public function get_image($id) {
