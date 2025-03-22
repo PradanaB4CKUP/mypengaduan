@@ -64,7 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <label>Link Event:</label>
   <textarea class="form-control" id="url" name="url" rows="1"></textarea>
   <br>
-  <label>Gambar: <input type="file" name="image"></lable><br><br>
+  <label>Gambar: <input type="file" name="image"></label><br><br>
   <a><input type="submit" value="Upload"></a>
   </form>
 
