@@ -56,20 +56,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </nav>
     </div><!-- End Page Title -->
 
-  <h1>Daftar Gambar</h1>
+  <h1>Daftar Event</h1>
   <a class="btn btn-primary" href="<?php echo site_url('staff/create_image'); ?>">Tambah Event</a><br><br>
-  <ul>
-  <?php foreach ($images as $image): ?>
-    <li>
-      <img src="<?php echo base_url('images/' . $image['image']); ?>" width="100" height="100">
-      <p>Judul Event : </p>
-      <p><?php echo $image['title'];?></p>
-      <p>Link Event : </p>
-      <p><?php echo $image['url'];?></p>
-      <a class="btn btn-outline-warning" href="<?php echo site_url('staff/delete_image/' . $image['id']); ?>">Hapus</a><br><br>
-    </li>
-  <?php endforeach; ?>
-  </ul>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Id_Event</th>
+        <th>Judul Event</th>
+        <th>Deskripsi</th>
+        <th>Link Event</th>
+        <th>Gambar</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach ($images as $image): ?>
+        <tr>
+          <td><?php echo $image['id']; ?></td>
+          <td><?php echo $image['title']; ?></td>
+          <td><?php echo $image['description']; ?></td>
+          <td><?php echo $image['url']; ?></td>
+          <td><img src="<?php echo base_url('images/' . $image['image']); ?>" width="100" height="100"></td>
+          <td>
+            <a class="btn btn-outline-warning" href="<?php echo site_url('staff/delete_image/' . $image['id']); ?>">Hapus</a>
+          </td>
+        </tr>
+      <?php endforeach; ?>
+    </tbody>
+  </table>
 
   </main><!-- End #main -->
 

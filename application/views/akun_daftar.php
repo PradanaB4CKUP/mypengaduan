@@ -76,6 +76,7 @@ a{
             </div>
             <div class="mb-3">
               <input name="password_user" type="password" class="form-control" id="password_user" placeholder="Password">
+              <input type="checkbox" onclick="myFunction()"> Show Password
             </div>
             <div class="text-center"><button type="submit" class="btn btn-color px-5 mb-3 w-100">Daftar</button></div>
           </form>
@@ -83,6 +84,16 @@ a{
       </div>
     </div>
   </div>
+  <script>
+    function myFunction() {
+      var x = document.getElementById("password_user");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }
+  </script>
     
   </body>
 </html>

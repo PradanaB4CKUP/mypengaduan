@@ -7,8 +7,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="description" content="Website PPKPT Nusamandiri">
+  <meta name="keywords" content="PPKPT, Nusamandiri, Universitas Nusa Mandiri">
+  <meta name="author" content="Satgas PPKPT Nusamandiri">
   <meta name="generator" content="Hugo 0.84.0">
   <title>PPKPT Nusamandiri</title>
   <!-- Bootstrap core CSS -->
@@ -135,6 +136,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
       -webkit-transform: scale(1.1);
       transform: scale(1.1);
     }
+
   </style>
 </head>
 
@@ -353,20 +355,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <div class="col-md-6">
           <div class="card flex-md-row mb-4 shadow-sm h-md-250">
             <div class="card-body d-flex flex-column align-items-start">
-              <strong class="d-inline-block mb-2 text-primary"> <?php echo $image['title']; ?></strong>
-              <!-- <h6 class="mb-0">
-                    <a class="text-dark" href="#"><?php echo $image['url']; ?></a>
-                </h6> -->
+              <strong class="d-inline-block mb-2 text-primary"><?php echo $image['title']; ?></strong>
               <p>Published: <?php echo (new DateTime($image['tanggal_event']))->format('d/m/Y'); ?></p>
-              <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to
-                additional content.</p>
+              <p class="card-text"><?php echo $image['description']; ?></p>
               <a class="btn btn-outline-primary btn-sm" role="button" href="<?php echo $image['url']; ?>">Open Event</a>
-
             </div>
             <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]"
               src="<?php echo base_url('images/' . $image['image']); ?>" style="width: 230px; height: 250px;">
           </div>
-
         </div>
       <?php endforeach; ?>
     </div>
@@ -376,38 +372,45 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <section class="container mx-auto my-5">
     <h1 class="text-center mb-4">Berita Terkini</h1>
     <div class="row g-3">
-      <?php foreach ($gambar_news as $berita): ?>
-        <!-- Berita 1 -->
+      <?php foreach ($array_berita as $berita): ?>
         <div class="col-md-6">
           <div class="card border-0 rounded-0 text-white overflow zoom">
             <div class="position-relative mx-auto">
               <!--thumbnail img-->
 
               <div class="ratio_right-cover-2 image-wrapper">
-                <img class="img-fluid" src="<?php echo base_url('gambar_berita/' . $berita['gambar_berita']); ?>" alt=""
+                <img class="img-fluid" src="<?php echo base_url('gambar_berita/' . $berita->gambar_berita); ?>" alt=""
                   style="width: 418px; height: 355px;">
               </div>
 
               <div class="position-absolute p-1 p-lg-3 b-0 w-100 bg-shadow">
-                <!-- category -->
-                <a class="p-1 badge badge-primary rounded-0" href="<?php echo $berita['title']; ?>">Judul</a>
+                <!-- meta data -->
+                <div class="meta-news">
+                  <!-- title dan url -->
+                  <a class="p-1 badge badge-primary rounded-0"
+                    href="<?php echo $berita->url_berita; ?>"><?php echo $berita->title; ?></a>
 
-                <!--title-->
-                <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
-                  <h2 class="h5 text-white my-1"><?php echo $berita['isi']; ?></h2>
-                </a>
-                <div class="news-meta">
+                  <!--isi-->
+                  <span class="news-description">
+                    <h2 class="h5 text-white my-1"><?php echo $berita->isi; ?></h2>
+                  </span>
+                  <!-- author -->
                   <span class="news-author">by <a class="text-white font-weight-bold"
-                      href="../category/author.html"><?php echo $berita['isi']; ?></a></span>
-                  <span class="news-date"><?php echo (new DateTime($berita['tanggal_berita']))->format('j M Y'); ?></span>
+                      href=""><?php echo $berita->author; ?></a></span>
+                  <!-- date -->
+                  <span class="news-date"><?php echo (new DateTime($berita->tanggal_berita))->format('j M Y'); ?></span>
+                  <!-- untuk keyword -->
+                  <br>
+                  <span class="meta-keyword">
+                    <?php foreach (explode(',', $berita->keyword) as $keyword) {
+                      echo '<a class="p-1 badge badge-secondary rounded-0 mx-1" href="">' . $keyword . '</a>';
+                    } ?>
+                    <!-- <span><i class="glyphicon glyphicon-comment"></i> <a
+                        href="http://wordpress.thebebel.com/showcase/newsbook/2015/01/19/meet-asias-best-destinations-for-the-summer/#respond">No
+                        Comments</a></span>
+                    <span><i class="glyphicon glyphicon-time"></i> Sep 15, 2015</span> -->
+                  </span>
                 </div>
-                <!-- untuk keyword -->
-                <span class="meta">
-                  <span><i class="glyphicon glyphicon-comment"></i> <a
-                      href="http://wordpress.thebebel.com/showcase/newsbook/2015/01/19/meet-asias-best-destinations-for-the-summer/#respond">No
-                      Comments</a></span>
-                  <span><i class="glyphicon glyphicon-time"></i> Sep 15, 2015</span>
-                </span>
               </div>
             </div>
           </div>

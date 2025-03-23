@@ -57,6 +57,7 @@ class Staff extends CI_Controller
 				'title' => $this->input->post('title'),
 				'isi' => $this->input->post('isi'),
 				'url_berita' => $this->input->post('url_berita'),
+				'author' => $this->input->post('author'),
 				'keyword' => $this->input->post('keyword'),
 				'gambar_berita' => $this->upload->data('file_name')
 			);
@@ -80,6 +81,7 @@ class Staff extends CI_Controller
 			$data = array(
 				'title' => $this->input->post('title'),
 				'url' => $this->input->post('url'),
+				'description' => $this->input->post('description'),
 				'image' => $this->upload->data('file_name')
 			);
 			$this->Image_model->insert_image($data);

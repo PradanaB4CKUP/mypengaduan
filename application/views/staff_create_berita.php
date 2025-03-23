@@ -64,6 +64,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <textarea class="form-control" id="isi" name="isi" rows="3"></textarea>
   <label>Link Berita</label>
   <textarea class="form-control" id="url_berita" name="url_berita" rows="1"></textarea>
+  <label>Author</label>
+  <textarea class="form-control" id="author" name="author" rows="1"></textarea>
   <br>
   <label>Keyword</label>
   <input type="text" id="keyword" name="keyword">
